@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CBAM Crude Steel CN Code Tree</title>
+<style>
+  :root {
+    --bg: #f5f7fa;
+    --panel: #ffffff;
+    --ink: #172033;
+    --muted: #5b6678;
+    --line: #cbd5e1;
+    --accent: #163a63;
+    --accent-soft: #eaf0f7;
+    --border: #dbe3ec;
+    --shadow: 0 5px 18px rgba(22, 58, 99, 0.08);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Inter, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  }
+  .page {
+    max-width: 1900px;
+    margin: 0 auto;
+    padding: 34px 28px 48px;
+  }
+  h1 {
+    margin: 0 0 26px;
+    font-size: clamp(24px, 2.2vw, 36px);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #102d4c;
+  }
+  .tree-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(420px, 1fr));
+    gap: 22px;
+    align-items: start;
+  }
+  .steel-column {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 18px 18px 22px;
+    box-shadow: var(--shadow);
+    min-width: 0;
+  }
+  details {
+    margin: 0;
+  }
+  summary {
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before {
+    content: "▾";
+    display: inline-block;
+    width: 18px;
+    margin-right: 6px;
+    color: var(--accent);
+    transform-origin: center;
+    transition: transform .16s ease;
+  }
+  details:not([open]) > summary::before {
+    transform: rotate(-90deg);
+  }
+  .depth-0 > summary {
+    font-size: 20px;
+    font-weight: 750;
+    color: #0f3155;
+    padding: 8px 4px 13px;
+  }
+  .depth-1 > summary {
+    font-size: 16px;
+    font-weight: 700;
+    color: #183e68;
+    padding: 8px 4px;
+  }
+  .depth-2 > summary,
+  .depth-3 > summary,
+  .depth-4 > summary {
+    font-size: 14px;
+    font-weight: 650;
+    color: #475569;
+    padding: 6px 4px;
+  }
+  .children {
+    position: relative;
+    margin-left: 9px;
+    padding-left: 18px;
+    border-left: 2px solid var(--line);
+  }
+  .node-line {
+    position: relative;
+    margin: 9px 0 9px 0;
+  }
+  .node-line::before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 17px;
+    width: 18px;
+    border-top: 2px solid var(--line);
+  }
+  .branch-node::before {
+    top: 18px;
+  }
+  .cn-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    padding: 11px 12px 12px;
+    box-shadow: 0 2px 7px rgba(15, 49, 85, 0.045);
+  }
+  .cn-code {
+    font-size: 14px;
+    font-weight: 800;
+    color: #0f3155;
+    letter-spacing: .035em;
+    margin-bottom: 5px;
+  }
+  .cn-desc {
+    font-size: 12.5px;
+    line-height: 1.48;
+    color: #3f4b5f;
+    overflow-wrap: anywhere;
+  }
+  .depth-1 > .children {
+    border-left-color: #d5dde7;
+  }
+  .depth-2 > .children,
+  .depth-3 > .children {
+    border-left-color: #e0e6ed;
+  }
+  @media (max-width: 1450px) {
+    .tree-grid {
+      grid-template-columns: 1fr;
+    }
+    .steel-column {
+      max-width: none;
+    }
+  }
+  @media (max-width: 720px) {
+    .page { padding: 22px 12px 36px; }
+    .steel-column { padding: 12px 10px 16px; border-radius: 14px; }
+    .children { margin-left: 5px; padding-left: 14px; }
+    .node-line::before { left: -16px; width: 14px; }
+    .cn-desc { font-size: 12px; }
+  }
+  @media print {
+    body { background: white; }
+    .page { max-width: none; padding: 12mm; }
+    .tree-grid { display: block; }
+    .steel-column { box-shadow: none; margin-bottom: 10mm; break-inside: avoid; }
+    details { display: block; }
+    details > * { display: block !important; }
+  }
+</style>
+</head>
+<body>
+  <main class="page">
+    <h1>CBAM Crude Steel — CN Code Tree</h1>
+    <div class="tree-grid">
+      <section class="steel-column"><details class="group depth-0" open><summary>Iron &amp; non-alloy steel</summary><div class="children"><div class="node-line branch-node"><details class="group depth-1" open><summary>Ingots / other primary forms</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7206 10 00</div><div class="cn-desc">Ingots, of iron and non-alloy steel (excl. remelted scrap ingots, continuous cast products, iron of heading 7203)</div></article></div><div class="node-line"><article class="cn-card"><div class="cn-code">7206 90 00</div><div class="cn-desc">Iron and non-alloy steel, in puddled bars or other primary forms (excl. ingots, remelted scrap ingots, continuous cast products, iron of heading 7203)</div></article></div></div></details></div><div class="node-line branch-node"><details class="group depth-1" open><summary>Semi-finished products</summary><div class="children"><div class="node-line branch-node"><details class="group depth-2" open><summary>Carbon &lt; 0,25 %</summary><div class="children"><div class="node-line branch-node"><details class="group depth-3" open><summary>Square / rectangular cross-section · width &lt; 2 × thickness</summary><div class="children"><div class="node-line branch-node"><details class="group depth-4" open><summary>Rolled / obtained by continuous casting</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7207 11 11</div><div class="cn-desc">Semi-finished products, of non-alloy free-cutting steel, containing by weight &lt; 0,25 % carbon, of square or rectangular cross-section, the width &lt; twice the thickness, rolled or obtained by continuous casting</div></article></div><div class="node-line"><article class="cn-card"><div class="cn-code">7207 11 14</div><div class="cn-desc">Semi-finished products, of iron or non-alloy steel, containing by weight &lt; 0,25 % carbon, of square or rectangular cross-section, the width &lt; twice the thickness of &lt;= 130 mm, rolled or obtained by continuous casting (excl. free-cutting steel)</div></article></div><div class="node-line"><article class="cn-card"><div class="cn-code">7207 11 16</div><div class="cn-desc">Semi-finished products, of iron or non-alloy steel, containing by weight &lt; 0,25 % carbon, of square or rectangular cross-section, the width &lt; twice the thickness of &gt; 130 mm, rolled or obtained by continuous casting (excl. free-cutting steel)</div></article></div></div></details></div><div class="node-line branch-node"><details class="group depth-4" open><summary>Forged</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7207 11 90</div><div class="cn-desc">Semi-finished products of iron or non-alloy steel, containing by weight &lt; 0,25 % carbon, of rectangular cross-section, the width &lt; twice the thickness, forged</div></article></div></div></details></div></div></details></div><div class="node-line branch-node"><details class="group depth-3" open><summary>Rectangular (other than square) · width ≥ 2 × thickness</summary><div class="children"><div class="node-line branch-node"><details class="group depth-4" open><summary>Rolled / obtained by continuous casting</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7207 12 10</div><div class="cn-desc">Semi-finished products of iron or non-alloy steel, containing by weight &lt; 0,25 of carbon, of rectangular &quot;other than square&quot; cross-section, the width measuring &gt;= twice the thickness, rolled or obtained by continuous casting</div></article></div></div></details></div><div class="node-line branch-node"><details class="group depth-4" open><summary>Forged</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7207 12 90</div><div class="cn-desc">Semi-finished products of iron or non-alloy steel, containing by weight &lt; 0,25 % carbon, of rectangular &quot;other than square&quot; cross-section, the width &gt;= twice the thickness, forged</div></article></div></div></details></div></div></details></div><div class="node-line branch-node"><details class="group depth-3" open><summary>Circular / polygonal cross-section</summary><div class="children"><div class="node-line branch-node"><details class="group depth-4" open><summary>Rolled / obtained by continuous casting</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7207 19 12</div><div class="cn-desc">Semi-finished products, of iron or non-alloy steel, containing by weight &lt; 0,25 % carbon, of circular or polygonal cross-section, rolled or obtained by continuous casting</div></article></div></div></details></div><div class="node-line branch-node"><details class="group depth-4" open><summary>Forged</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7207 19 19</div><div class="cn-desc">Semi-finished products of iron or non-alloy steel, containing by weight &lt; 0,25 % carbon, of circular or polygonal cross-section, forged</div></article></div></div></details></div></div></details></div><div class="node-line branch-node"><details class="group depth-3" open><summary>Other cross-sections</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7207 19 80</div><div class="cn-desc">Semi-finished products of iron or non-alloy steel, containing by weight &lt; 0,25 % carbon (excl. semi-products, of square, rectangular, circular or polygonal cross-section)</div></article></div></div></details></div></div></details></div><div class="node-line branch-node"><details class="group depth-2" open><summary>Carbon ≥ 0,25 %</summary><div class="children"><div class="node-line branch-node"><details class="group depth-3" open><summary>Square / rectangular cross-section · width &lt; 2 × thickness</summary><div class="children"><div class="node-line branch-node"><details class="group depth-4" open><summary>Rolled / obtained by continuous casting</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7207 20 11</div><div class="cn-desc">Semi-finished products, of non-alloy free-cutting steel, containing by weight &gt;= 0,25 % carbon, of square or rectangular cross-section, the width &lt; twice the thickness, rolled or obtained by continuous casting</div></article></div><div class="node-line"><article class="cn-card"><div class="cn-code">7207 20 15</div><div class="cn-desc">Semi-finished products of iron or non-alloy steel, containing by weight &gt;= 0,25 % but &lt; 0,6 % carbon, of square or rectangular cross-section, the width &lt; twice the thickness, rolled or obtained by continuous casting (excl. free-cutting steel)</div></article></div><div class="node-line"><article class="cn-card"><div class="cn-code">7207 20 17</div><div class="cn-desc">Semi-finished products of iron or non-alloy steel, containing by weight &gt;= 0,6 % carbon, of square or rectangular cross-section, the width &lt; twice the thickness, rolled or obtained by continuous casting (excl. free-cutting steel)</div></article></div></div></details></div><div class="node-line branch-node"><details class="group depth-4" open><summary>Forged</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7207 20 19</div><div class="cn-desc">Semi-finished products of iron or non-alloy steel, containing by weight &gt;= 0,25 % carbon, of square or rectangular cross-section, the width &lt; twice the thickness, forged</div></article></div></div></details></div></div></details></div><div class="node-line branch-node"><details class="group depth-3" open><summary>Rectangular (other than square) · width ≥ 2 × thickness</summary><div class="children"><div class="node-line branch-node"><details class="group depth-4" open><summary>Rolled / obtained by continuous casting</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7207 20 32</div><div class="cn-desc">Semi-finished products of iron or non-alloy steel, containing by weight &gt;= 0,25 of carbon, of rectangular &quot;other than square&quot; cross-section, the width measuring &gt;= twice the thickness, rolled or obtained by continuous casting</div></article></div></div></details></div><div class="node-line branch-node"><details class="group depth-4" open><summary>Forged</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7207 20 39</div><div class="cn-desc">Semi-finished products of iron or non-alloy steel, containing by weight &gt;= 0,25 % carbon, of rectangular &quot;other than square&quot; cross-section and the width &gt;= twice the thickness, forged</div></article></div></div></details></div></div></details></div><div class="node-line branch-node"><details class="group depth-3" open><summary>Circular / polygonal cross-section</summary><div class="children"><div class="node-line branch-node"><details class="group depth-4" open><summary>Rolled / obtained by continuous casting</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7207 20 52</div><div class="cn-desc">Semi-finished products of iron or non-alloy steel, containing by weight &gt;= 0,25 % carbon, of circular or polygonal cross-section, rolled or obtained by continuous casting</div></article></div></div></details></div><div class="node-line branch-node"><details class="group depth-4" open><summary>Forged</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7207 20 59</div><div class="cn-desc">Semi-finished products of iron or non-alloy steel, containing by weight &gt;= 0,6 % carbon, of circular or polygonal cross-section, forged</div></article></div></div></details></div></div></details></div><div class="node-line branch-node"><details class="group depth-3" open><summary>Other cross-sections</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7207 20 80</div><div class="cn-desc">Semi-finished products of iron or non-alloy steel, containing by weight &gt;= 0,25 % carbon (excl. those of square, rectangular, circular or polygonal cross-section)</div></article></div></div></details></div></div></details></div></div></details></div></div></details></section><section class="steel-column"><details class="group depth-0" open><summary>Stainless steel</summary><div class="children"><div class="node-line branch-node"><details class="group depth-1" open><summary>Ingots / other primary forms</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7218 10 00</div><div class="cn-desc">Steel, stainless, in ingots and other primary forms (excl. waste and scrap in ingot form, and products obtained by continuous casting)</div></article></div></div></details></div><div class="node-line branch-node"><details class="group depth-1" open><summary>Semi-finished products</summary><div class="children"><div class="node-line branch-node"><details class="group depth-2" open><summary>Rectangular (other than square) cross-section</summary><div class="children"><div class="node-line branch-node"><details class="group depth-3" open><summary>Nickel ≥ 2,5 %</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7218 91 10</div><div class="cn-desc">Semi-finished products of stainless steel, of rectangular &quot;other than square&quot; cross-section, containing by weight ≥ 2,5 % nickel</div></article></div></div></details></div><div class="node-line branch-node"><details class="group depth-3" open><summary>Nickel &lt; 2,5 %</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7218 91 80</div><div class="cn-desc">Semi-finished products of stainless steel, of rectangular &quot;other than square&quot; cross-section, containing by weight &lt; 2,5 % nickel</div></article></div></div></details></div></div></details></div><div class="node-line branch-node"><details class="group depth-2" open><summary>Square cross-section</summary><div class="children"><div class="node-line branch-node"><details class="group depth-3" open><summary>Rolled / obtained by continuous casting</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7218 99 11</div><div class="cn-desc">Semi-finished products of stainless steel, of square cross-section, rolled or obtained by continuous casting</div></article></div></div></details></div><div class="node-line branch-node"><details class="group depth-3" open><summary>Forged</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7218 99 19</div><div class="cn-desc">Semi-finished products of stainless steel, of square cross-section, forged</div></article></div></div></details></div></div></details></div><div class="node-line branch-node"><details class="group depth-2" open><summary>Circular / other non-square, non-rectangular cross-sections</summary><div class="children"><div class="node-line branch-node"><details class="group depth-3" open><summary>Rolled / obtained by continuous casting</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7218 99 20</div><div class="cn-desc">Semi-finished products of stainless steel, of circular cross-section or of cross-section other than square or rectangular, rolled or obtained by continuous casting</div></article></div></div></details></div><div class="node-line branch-node"><details class="group depth-3" open><summary>Forged</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7218 99 80</div><div class="cn-desc">Semi-finished products of stainless steel, forged (excl. products of square or rectangular cross-section)</div></article></div></div></details></div></div></details></div></div></details></div></div></details></section><section class="steel-column"><details class="group depth-0" open><summary>Other alloy steel</summary><div class="children"><div class="node-line branch-node"><details class="group depth-1" open><summary>Ingots / other primary forms</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7224 10 10</div><div class="cn-desc">Ingots and other primary forms, of tool steel</div></article></div><div class="node-line"><article class="cn-card"><div class="cn-code">7224 10 90</div><div class="cn-desc">Steel, alloy, other than stainless, in ingots or other primary forms (excl. of tool steel, waste and scrap in ingot form and products obtained by continuous casting)</div></article></div></div></details></div><div class="node-line branch-node"><details class="group depth-1" open><summary>Semi-finished products</summary><div class="children"><div class="node-line branch-node"><details class="group depth-2" open><summary>Tool steel</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7224 90 02</div><div class="cn-desc">Semi-finished products of tool steel</div></article></div></div></details></div><div class="node-line branch-node"><details class="group depth-2" open><summary>High-speed steel · square / rectangular · width &lt; 2 × thickness</summary><div class="children"><div class="node-line branch-node"><details class="group depth-3" open><summary>Hot-rolled / obtained by continuous casting</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7224 90 03</div><div class="cn-desc">Semi-finished products of high-speed steel, of square or rectangular cross-section, hot-rolled or obtained by continuous casting the width measuring &lt; twice the thickness</div></article></div></div></details></div></div></details></div><div class="node-line branch-node"><details class="group depth-2" open><summary>Square / rectangular cross-section · width &lt; 2 × thickness</summary><div class="children"><div class="node-line branch-node"><details class="group depth-3" open><summary>Hot-rolled / obtained by continuous casting</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7224 90 05</div><div class="cn-desc">Semi-finished products of steel containing by weight ≤ 0,7 % of carbon, 0,5 % to 1,2 % of manganese, 0,6 % to 2,3 % of silicon, or of steel containing by weight ≥ 0,0008 % of boron with any other element &lt; the minimum content referred to in Note 1 f to chapter 72, of square or rectangular cross-section, hot rolled or obtained by continuous casting, the width measuring &lt; twice the thickness</div></article></div><div class="node-line"><article class="cn-card"><div class="cn-code">7224 90 07</div><div class="cn-desc">Semi-finished products of alloy steel other than stainless steel, of square or rectangular cross-section, hot-rolled or obtained by continuous casting, the width measuring &lt; twice the thickness (excl. of tool steel, high-speed steel and articles of subheading 7224 90 05)</div></article></div></div></details></div></div></details></div><div class="node-line branch-node"><details class="group depth-2" open><summary>Square / rectangular cross-section · width ≥ 2 × thickness</summary><div class="children"><div class="node-line branch-node"><details class="group depth-3" open><summary>Hot-rolled / obtained by continuous casting</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7224 90 14</div><div class="cn-desc">Semi-finished products of alloy steel other than stainless steel, of square or rectangular cross-section, hot-rolled or obtained by continuous casting, the width measuring ≥ twice the thickness (excl. of tool steel)</div></article></div></div></details></div><div class="node-line branch-node"><details class="group depth-3" open><summary>Forged</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7224 90 18</div><div class="cn-desc">Semi-finished products of alloy steel other than stainless steel, of square or rectangular cross-section, forged (excl. of tool steel)</div></article></div></div></details></div></div></details></div><div class="node-line branch-node"><details class="group depth-2" open><summary>Other than square / rectangular cross-section</summary><div class="children"><div class="node-line branch-node"><details class="group depth-3" open><summary>Hot-rolled / obtained by continuous casting</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7224 90 31</div><div class="cn-desc">Semi-finished products of steel containing by weight 0,9 % to 1,15 % carbon, 0,5 % to 2 % of chromium and, if present, ≤ 0,5 % of molybdenum, cut into shapes other than square or rectangular, hot-rolled or obtained by continuous casting</div></article></div><div class="node-line"><article class="cn-card"><div class="cn-code">7224 90 38</div><div class="cn-desc">Semi-finished products of alloy steel, other than stainless steel, cut into shapes other than square or rectangular, hot-rolled or obtained by continuous casting (excl. of tool steel and products containing by weight 0,9 % to 1,15 % of carbon, 0,5 % to 2 % of chromium and, if present, ≤ 0,5 % of molybdenum)</div></article></div></div></details></div><div class="node-line branch-node"><details class="group depth-3" open><summary>Forged</summary><div class="children"><div class="node-line"><article class="cn-card"><div class="cn-code">7224 90 90</div><div class="cn-desc">Semi-finished products of alloy steel, other than stainless steel, forged (excl. of tool steel and products of square or rectangular, circular or polygamol cross-section)</div></article></div></div></details></div></div></details></div></div></details></div></div></details></section>
+    </div>
+  </main>
+</body>
+</html>
